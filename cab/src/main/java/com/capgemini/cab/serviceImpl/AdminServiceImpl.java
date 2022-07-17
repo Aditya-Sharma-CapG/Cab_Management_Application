@@ -22,7 +22,7 @@ public class AdminServiceImpl implements IAdminService{
 	@Override
 	public Admin updateAdmin(Admin admin) {
 		Admin olddetails=adminRepo.findById(admin.getAdminId()).get();
-		if(olddetails.equals(null)) {
+		if(olddetails==null) {
 			return null;
 		}
 		adminRepo.save(admin);
@@ -32,7 +32,7 @@ public class AdminServiceImpl implements IAdminService{
 	@Override
 	public Admin deleteAdmin(int adminId) {
 		Admin olddetails=adminRepo.findById(adminId).get();
-		if(olddetails.equals(null)) {
+		if(olddetails==null) {
 			return null;
 		}
 		adminRepo.deleteById(adminId);

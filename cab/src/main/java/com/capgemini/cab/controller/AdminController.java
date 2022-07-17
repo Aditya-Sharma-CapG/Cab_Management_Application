@@ -1,7 +1,5 @@
 package com.capgemini.cab.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -22,7 +20,7 @@ public class AdminController {
 	private IAdminService adminService;
 	
 	@PostMapping("addadmin")
-	public String addAdmin(@Valid @RequestBody Admin ad) {
+	public String addAdmin(@RequestBody Admin ad) {
 		
 		Admin opt=adminService.findByEmail(ad.getEmail());
 		if(opt==null) {
@@ -34,9 +32,9 @@ public class AdminController {
 		return "Admin added";
 	}
 	@PatchMapping("updateadmin")
-	public String updateUser(@Valid @RequestBody Admin ad) {
+	public String updateUser(@RequestBody Admin ad) {
 		Admin opt=adminService.findByAdminId(ad.getAdminId());
-		if(opt.equals(null)) {
+		if(opt==null) {
 			throw new AdminNotFoundException();
 		}
 		else {
