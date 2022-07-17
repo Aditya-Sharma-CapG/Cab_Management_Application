@@ -5,10 +5,10 @@ import java.util.List;
 import com.capgemini.cab.domain.Customer;
 
 public interface ICustomerService {
-	public Customer insertCustomer(Customer customer);
-	public Customer updateCustomer(Customer customer);
-	public Customer deleteCustomer(Customer customer);
+	public Customer saveCustomer(Customer customer);
+	public Customer updateCustomer(Customer customer,long id);
+	public void deleteCustomer(long id);
 	public List<Customer>viewCustomers();
-	public Customer viewCustomer(int customerId);
-	public Customer validateCustomer(String username, String password);
+	public Customer viewCustomer(long id);
+//	public Customer validateCustomer(String username, String password);
 }

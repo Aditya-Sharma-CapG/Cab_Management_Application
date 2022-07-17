@@ -1,14 +1,15 @@
 package com.capgemini.cab.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.capgemini.cab.domain.Cab;
-import com.capgemini.cab.exception.CabNotFoundException;
 
-public interface ICabRepository {
-	public Cab insertCab(Cab cab);
-	public Cab updateCab(Cab cab) throws CabNotFoundException;
-	public Cab deleteCab(Cab cab) throws CabNotFoundException;
-	public List<Cab> viewCabsOfType(String carType) throws CabNotFoundException;
-	public int countCabsOfType(String carType) throws CabNotFoundException;
+public interface ICabRepository extends JpaRepository<Cab, Integer> {
+	
+	@Query("select c from Cab c where c.carType=?1")
+	Cab getCabByType(String cabType);
+	
+	@Query("select count(carType) from Cab c where c.carType=?1")
+	int getCountByCabType(String cabType);
 }

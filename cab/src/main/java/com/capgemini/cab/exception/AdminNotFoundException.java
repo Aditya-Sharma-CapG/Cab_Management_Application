@@ -1,6 +1,6 @@
 package com.capgemini.cab.exception;
 
-public class AdminNotFoundException extends Exception {
+public class AdminNotFoundException extends RuntimeException {
 
 	/**
 	 * 
