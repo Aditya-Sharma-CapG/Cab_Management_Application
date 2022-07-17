@@ -1,12 +1,9 @@
 package com.capgemini.cab.repository;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.cab.domain.Customer;
-import com.capgemini.cab.exception.CustomerNotFoundException;
 @Repository
 public interface ICustomerRepository extends CrudRepository<Customer,Long> {
 //	public Customer insertCustomer(Customer customer);
