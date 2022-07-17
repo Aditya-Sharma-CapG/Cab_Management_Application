@@ -1,4 +1,4 @@
-package com.capgemini.cab.Controller;
+package com.capgemini.cab.controller;
 
 import java.util.HashMap;
 import java.util.List;
