@@ -9,8 +9,6 @@ import com.capgemini.cab.domain.CustomerLogin;
 import com.capgemini.cab.repository.CustomerLoginRepository;
 import com.capgemini.cab.service.CustomerLoginService;
 
-
-
 @Service
 public class CustomerServiceLoginImpl implements CustomerLoginService {
 	@Autowired

@@ -5,9 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.capgemini.cab.domain.CustomerLogin;
 
-
-
-
 @Repository
 public interface CustomerLoginRepository extends JpaRepository<CustomerLogin, Long> {
 	

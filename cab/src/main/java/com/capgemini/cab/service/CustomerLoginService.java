@@ -12,8 +12,6 @@ public interface CustomerLoginService {
 	List<CustomerLogin> getAllCustomers();
 	
 	CustomerLogin saveCustomer(CustomerLogin customer);
-	
-
 
 	CustomerLogin getCustomerByUsername(String username);
 	
