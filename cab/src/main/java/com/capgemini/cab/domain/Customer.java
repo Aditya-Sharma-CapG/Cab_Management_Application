@@ -14,6 +14,7 @@ public class Customer{
 	private String password;
 	private String address;
 	private String mobilenumber;
+	private String email;
 	public Customer() {
 		super();
 	}
@@ -47,4 +48,11 @@ public class Customer{
 	public void setMobilenumber(String mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 }

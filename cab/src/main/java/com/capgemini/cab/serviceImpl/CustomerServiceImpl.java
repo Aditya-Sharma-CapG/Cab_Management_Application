@@ -30,7 +30,7 @@ public class CustomerServiceImpl implements ICustomerService{
 		Customer existingCustomer=customerRepository.findById(id).orElseThrow(()->new CustomerNotFoundException("Customer","Id",id));
 		existingCustomer.setUsername(customer.getUsername());
 		existingCustomer.setPassword(customer.getPassword());
-		//existingCustomer.setEmail(customer.getEmail());
+		existingCustomer.setEmail(customer.getEmail());
 		existingCustomer.setAddress(customer.getAddress());
 		existingCustomer.setMobilenumber(customer.getMobilenumber());
 		//save existing customer in DB
