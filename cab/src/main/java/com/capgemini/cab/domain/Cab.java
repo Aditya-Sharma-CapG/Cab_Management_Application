@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Cab {
@@ -20,6 +21,7 @@ public class Cab {
 	 * this field specifies which type of car it is, like sedan or suv, etc
 	 */
 	@Column(name = "car_type", nullable = false)
+	@NotBlank(message = "car type required")
 	private String carType;
 	
 	/*

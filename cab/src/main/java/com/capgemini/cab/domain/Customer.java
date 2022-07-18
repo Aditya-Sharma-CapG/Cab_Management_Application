@@ -1,20 +1,33 @@
 package com.capgemini.cab.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Customer{
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank(message="UserName is Required")
+	@Column(name="username",nullable=false)
 	private String username;
+	
+	@Column(name="password",nullable=true)
+	@NotBlank(message="Password is Required")
 	private String password;
 	private String address;
 	private String mobilenumber;
+	
+	@Column(name="email",nullable=true)
+	@NotBlank(message="Email id is Required")
 	private String email;
+	
 	public Customer() {
 		super();
 	}
