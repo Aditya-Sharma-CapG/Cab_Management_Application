@@ -1,4 +1,4 @@
-package com.capgemini.cab.serviceImpl;
+package com.capgemini.cab.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +41,7 @@ public class AdminServiceImpl implements IAdminService{
 
 	@Override
 	public Admin findByEmail(String email) {
+<<<<<<< HEAD:cab/src/main/java/com/capgemini/cab/serviceImpl/AdminServiceImpl.java
 		Admin details =adminRepo.findByEmail(email);
 		if(details==null) {
 			return null;
@@ -49,10 +50,14 @@ public class AdminServiceImpl implements IAdminService{
 			return details;
 		}
 		
+=======
+		return adminRepo.findByEmail(email);
+>>>>>>> 6e3d5098a0d9d4454f8555a6e57d3cdafc7e9563:cab/src/main/java/com/capgemini/cab/serviceimpl/AdminServiceImpl.java
 	}
 
 	@Override
 	public Admin findByAdminId(int adminId) {
+<<<<<<< HEAD:cab/src/main/java/com/capgemini/cab/serviceImpl/AdminServiceImpl.java
 		Admin details;
 		if(adminRepo.existsById(adminId)) {
 			details=adminRepo.findById(adminId).get();
@@ -61,6 +66,9 @@ public class AdminServiceImpl implements IAdminService{
 			return null;
 		}
 		return details;
+=======
+		return adminRepo.findById(adminId).get();
+>>>>>>> 6e3d5098a0d9d4454f8555a6e57d3cdafc7e9563:cab/src/main/java/com/capgemini/cab/serviceimpl/AdminServiceImpl.java
 	}
 	
 }

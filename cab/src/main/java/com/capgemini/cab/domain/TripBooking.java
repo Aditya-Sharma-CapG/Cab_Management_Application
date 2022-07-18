@@ -9,19 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//public class TripBooking {
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-//	private int tripBookingId;
-//	private int customerId;
-//	private Driver driver;
-//	private String fromLocation;
-//	private String toLocation;
-//	private LocalDateTime fromDateTime;
-//	private LocalDateTime toDateTime;
-//	private boolean status;
-//	private float distanceInKm;
-//	private float bill;
-//}
 @Entity
 @Table(name="booking")
 public class TripBooking {
@@ -56,6 +45,7 @@ public class TripBooking {
 	/*
 	 * It specifies the end date for the trip.
 	 */
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private String toDateTime;
 	/*
 	 * It specifies availability..

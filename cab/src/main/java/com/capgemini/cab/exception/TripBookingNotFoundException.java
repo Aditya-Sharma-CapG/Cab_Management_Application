@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value=HttpStatus.NOT_FOUND)
 public class TripBookingNotFoundException extends RuntimeException {
-	private String resourceName;
-	private String fieldName;
-	private long fieldvalue;
+	private final String resourceName;
+	private final String fieldName;
+	private final long fieldvalue;
 
 	public TripBookingNotFoundException(String resourceName, String fieldName, long id) {
 		super(String.format("%s not found with %s:'%s'",resourceName,fieldName,id));

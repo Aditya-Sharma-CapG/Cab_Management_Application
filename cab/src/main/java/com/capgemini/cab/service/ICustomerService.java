@@ -10,5 +10,4 @@ public interface ICustomerService {
 	public void deleteCustomer(long id);
 	public List<Customer>viewCustomers();
 	public Customer viewCustomer(long id);
-//	public Customer validateCustomer(String username, String password);
 }
