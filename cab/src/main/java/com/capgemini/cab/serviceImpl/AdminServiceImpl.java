@@ -41,14 +41,26 @@ public class AdminServiceImpl implements IAdminService{
 
 	@Override
 	public Admin findByEmail(String email) {
-		Admin admin=adminRepo.findByEmail(email);
-		return admin;
+		Admin details =adminRepo.findByEmail(email);
+		if(details==null) {
+			return null;
+		}
+		else {
+			return details;
+		}
+		
 	}
 
 	@Override
 	public Admin findByAdminId(int adminId) {
-		Admin admin=adminRepo.findById(adminId).get();
-		return admin;
+		Admin details;
+		if(adminRepo.existsById(adminId)) {
+			details=adminRepo.findById(adminId).get();
+		}
+		else {
+			return null;
+		}
+		return details;
 	}
 	
 }
