@@ -1,4 +1,4 @@
-package com.capgemini.cab.serviceImpl;
+package com.capgemini.cab.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,6 @@ public class AdminLoginServiceImpl implements AdminLoginService {
 			return admin;
 		}
 		else {
-			//throw new ResourceNotFoundException("Admin not found with username: "+username);
 			return null;
 		}
 	}

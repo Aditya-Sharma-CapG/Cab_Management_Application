@@ -1,4 +1,4 @@
-package com.capgemini.cab.serviceImpl;
+package com.capgemini.cab.serviceimpl;
 
 import java.util.List;
 
@@ -16,19 +16,16 @@ public class CustomerServiceLoginImpl implements CustomerLoginService {
 
 	@Override
 	public List<CustomerLogin> getAllCustomers() {
-		// TODO Auto-generated method stub
 		return customerRepository.findAll();
 	}
 
 	@Override
 	public CustomerLogin saveCustomer(CustomerLogin customer) {
-		// TODO Auto-generated method stub
 		return customerRepository.save(customer);
 	}
 
 	@Override
 	public CustomerLogin getCustomerByUsername(String username) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

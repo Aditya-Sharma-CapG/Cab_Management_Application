@@ -37,6 +37,9 @@ public class Cab {
 			, nullable = false)
 	private float perKmRate;
 	
+	/*
+	 * Non args contructor
+	 */
 	public Cab() {
 		
 	}

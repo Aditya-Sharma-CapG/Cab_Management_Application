@@ -1,7 +1,5 @@
 package com.capgemini.cab.domain;
 
-import javax.annotation.Generated;
-import com.capgemini.cab.domain.Cab;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

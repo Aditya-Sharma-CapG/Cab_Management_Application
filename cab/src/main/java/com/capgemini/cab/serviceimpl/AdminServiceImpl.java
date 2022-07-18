@@ -1,4 +1,4 @@
-package com.capgemini.cab.serviceImpl;
+package com.capgemini.cab.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,14 +41,12 @@ public class AdminServiceImpl implements IAdminService{
 
 	@Override
 	public Admin findByEmail(String email) {
-		Admin admin=adminRepo.findByEmail(email);
-		return admin;
+		return adminRepo.findByEmail(email);
 	}
 
 	@Override
 	public Admin findByAdminId(int adminId) {
-		Admin admin=adminRepo.findById(adminId).get();
-		return admin;
+		return adminRepo.findById(adminId).get();
 	}
 	
 }
