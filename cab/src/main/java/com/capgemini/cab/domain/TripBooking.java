@@ -10,11 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-<<<<<<< HEAD
 
 //public class TripBooking {
-=======
->>>>>>> 80b9318b01da6dd325790aeb55c68b8e77ef2b8f
 
 @Entity
 @Table(name="booking")
