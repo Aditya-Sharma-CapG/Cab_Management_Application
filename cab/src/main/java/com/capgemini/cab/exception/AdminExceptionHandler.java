@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class AdminExceptionHandler {
 	@ExceptionHandler(value=AdminNotFoundException.class)
-	public ResponseEntity<String> userNotFoundExceptionHandler(AdminNotFoundException ex){
+	public ResponseEntity<String> adminNotFoundExceptionHandler(AdminNotFoundException ex){
 		return new ResponseEntity<String>("Admin Not Found",HttpStatus.NOT_FOUND);
 	}
 	@ExceptionHandler(value=AdminExistsException.class)
-	public ResponseEntity<String> userExistExceptionHandler(AdminExistsException ex){
+	public ResponseEntity<String> adminExistExceptionHandler(AdminExistsException ex){
 		return new ResponseEntity<String>("Admin already exists",HttpStatus.NOT_FOUND);
 	}
 }

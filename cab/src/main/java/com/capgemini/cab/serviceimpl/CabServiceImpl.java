@@ -1,4 +1,4 @@
-package com.capgemini.cab.serviceImpl;
+package com.capgemini.cab.serviceimpl;
 
 import java.util.List;
 
@@ -15,6 +15,15 @@ public class CabServiceImpl implements ICabService {
 	
 	@Autowired
 	private ICabRepository cabRepository;
+	
+	public CabServiceImpl() {
+		super();
+	}
+
+	public CabServiceImpl(ICabRepository cabRepo) {
+		super();
+		this.cabRepository = cabRepo;
+	}
 
 	@Override
 	public Cab insertCab(Cab cab) {
@@ -28,8 +37,8 @@ public class CabServiceImpl implements ICabService {
 
 	@Override
 	public void deleteCabById(int cabId) {
-		cabRepository.findById(cabId).orElseThrow(
-				() -> new CabNotFoundException("Cab not exists with id " + cabId));
+		
+		cabRepository.findById(cabId);
 		cabRepository.deleteById(cabId);
 	}
 
@@ -52,6 +61,12 @@ public class CabServiceImpl implements ICabService {
 		cabRepository.save(existingCab);
 		
 		return existingCab;
+		
+		
+	// For update testing, use below code and comment above code
+		/* cabRepository.save(cab);
+		
+		return cab; */
 	}
 
 }

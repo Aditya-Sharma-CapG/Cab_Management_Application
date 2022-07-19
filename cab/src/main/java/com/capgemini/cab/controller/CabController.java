@@ -45,11 +45,6 @@ public class CabController {
 		return cabService.getAllCabs();
 	}
 	
-//	@GetMapping("/{carType}")
-//	public Cab getCabByType(@PathVariable("carType") String carType) {
-//		return cabService.getCabByType(carType);
-//	}
-	
 	/*
 	 *  api to show all cabs available
 	 *  @param(carType)

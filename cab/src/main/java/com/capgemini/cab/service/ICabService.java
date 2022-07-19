@@ -30,11 +30,6 @@ public interface ICabService {
 	 * @param(id)
 	 */
 	void deleteCabById(int cabId);
-	
-	/*
-	 * getCabByType method show cab detail of the type specified
-	 */
-//	Cab getCabByType(String cabType);
 
 	/*
 	 * this method will return the count of the cabs of specific type

@@ -10,20 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+<<<<<<< HEAD
 
 //public class TripBooking {
+=======
+>>>>>>> 80b9318b01da6dd325790aeb55c68b8e77ef2b8f
 
-//	private int tripBookingId;
-//	private int customerId;
-//	private Driver driver;
-//	private String fromLocation;
-//	private String toLocation;
-//	private LocalDateTime fromDateTime;
-//	private LocalDateTime toDateTime;
-//	private boolean status;
-//	private float distanceInKm;
-//	private float bill;
-//}
 @Entity
 @Table(name="booking")
 public class TripBooking {
