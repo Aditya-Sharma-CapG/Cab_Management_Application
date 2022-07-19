@@ -41,7 +41,6 @@ public class AdminServiceImpl implements IAdminService{
 
 	@Override
 	public Admin findByEmail(String email) {
-<<<<<<< HEAD:cab/src/main/java/com/capgemini/cab/serviceImpl/AdminServiceImpl.java
 		Admin details =adminRepo.findByEmail(email);
 		if(details==null) {
 			return null;
@@ -49,26 +48,18 @@ public class AdminServiceImpl implements IAdminService{
 		else {
 			return details;
 		}
-		
-=======
-		return adminRepo.findByEmail(email);
->>>>>>> 6e3d5098a0d9d4454f8555a6e57d3cdafc7e9563:cab/src/main/java/com/capgemini/cab/serviceimpl/AdminServiceImpl.java
 	}
 
 	@Override
 	public Admin findByAdminId(int adminId) {
-<<<<<<< HEAD:cab/src/main/java/com/capgemini/cab/serviceImpl/AdminServiceImpl.java
 		Admin details;
 		if(adminRepo.existsById(adminId)) {
-			details=adminRepo.findById(adminId).get();
+			details = adminRepo.findById(adminId).get();
+			return details;
 		}
 		else {
 			return null;
 		}
-		return details;
-=======
-		return adminRepo.findById(adminId).get();
->>>>>>> 6e3d5098a0d9d4454f8555a6e57d3cdafc7e9563:cab/src/main/java/com/capgemini/cab/serviceimpl/AdminServiceImpl.java
+		
 	}
-	
 }
