@@ -14,6 +14,17 @@ class CabService {
   deleteCab(cabId) {
     return axios.delete(CAB_API_BASE_URL + "/" + cabId);
   }
+
+  getCabById(cabId) {
+    return axios.get(CAB_API_BASE_URL + "/" + cabId);
+  }
+
+  updateCab(cab, cabId) {
+    return axios.put(
+      CAB_API_BASE_URL + "/" + localStorage.getItem("cabId"),
+      cab
+    );
+  }
 }
 
 export default new CabService();

@@ -50,7 +50,7 @@ public class CabController {
 	 *  @param(carType)
 	 *  admin and customer, both can view
 	*/
-	@GetMapping("/cabs/{carType}")
+	@GetMapping("/cabs/type/{carType}")
 	public String getCabCountByType(@PathVariable("carType") String carType) {
 		
 		int a = cabService.countCabsOfType(carType);
@@ -62,13 +62,20 @@ public class CabController {
 		}
 	} 
 	
+	@GetMapping("/cabs/{id}")
+	public ResponseEntity<Cab> getCabById(@PathVariable int id) {
+		Cab cab = null;
+		cab = cabService.getCabById(id);
+		return ResponseEntity.ok(cab); 
+	}
+	
 	/*
 	 * update a cab detail(s) by providing ID
 	 * @param(cabId)
 	 * Admin prilivige only
 	 */
 	@PutMapping("/cabs/{id}")
-	public ResponseEntity<Cab> updateCab(@PathVariable("id") int id, @RequestBody Cab cab) {
+	public ResponseEntity<Cab> updateCab(@RequestBody Cab cab, @PathVariable("id") int id) {
 		
 		return new ResponseEntity<Cab>(cabService.updateCab(cab, id), HttpStatus.OK);
 	}

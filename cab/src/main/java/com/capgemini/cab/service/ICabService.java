@@ -19,6 +19,13 @@ public interface ICabService {
 	public List<Cab> getAllCabs();
 	
 	/*
+	 * getCabById method will show a particular cab details based on id provided
+	 * @param(cab id)
+	 * Admin privilidge
+	 */
+	public Cab getCabById(int id);
+	
+	/*
 	 * updateCab method will update the cab details, cab is selected by prividing its Id
 	 * @param(id)
 	 * Admin privilidge

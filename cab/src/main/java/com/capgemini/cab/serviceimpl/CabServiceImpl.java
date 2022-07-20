@@ -34,6 +34,11 @@ public class CabServiceImpl implements ICabService {
 	public List<Cab> getAllCabs() {
 		return cabRepository.findAll();
 	}
+	
+	@Override
+	public Cab getCabById(int id) {
+		return cabRepository.findById(id).get();
+	}
 
 	@Override
 	public void deleteCabById(int cabId) {
