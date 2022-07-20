@@ -39,6 +39,10 @@ public class CustomerServiceImpl implements ICustomerService{
 		//save existing customer in DB
 		customerRepository.save(existingCustomer);
 		return existingCustomer;
+		// For update testing, use below code and comment above code
+		/* customerRepository.save(existingCustomer);
+		
+		return existingCustomer; */
 	}
 
 	@Override

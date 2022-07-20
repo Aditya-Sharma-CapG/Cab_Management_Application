@@ -7,4 +7,5 @@ import com.capgemini.cab.domain.Customer;
 
 @Repository
 public interface ICustomerRepository extends CrudRepository<Customer,Long> {
+	
 }
