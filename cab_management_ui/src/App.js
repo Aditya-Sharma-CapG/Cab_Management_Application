@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import AddCab from "./components/AddCab";
+import BookCab from "./components/BookCab";
+import CabBookSuccess from "./components/CabBookSuccess";
+import CabList from "./components/CabsList";
+import ListCab from "./components/ListCab";
+import Navbar from "./components/Navbar";
+import UpdateCab from "./components/UpdateCab";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route index element={<ListCab />}></Route>
+          <Route path="/" element={<ListCab />}></Route>
+          <Route path="/cabList" element={<ListCab />}></Route>
+          <Route path="/addCab" element={<AddCab />}></Route>
+          <Route path="/editCab/:id" element={<UpdateCab />}></Route>
+          <Route path="/bookCab" element={<BookCab />}></Route>
+          <Route path="/pageBooked" element={<CabBookSuccess />}></Route>
+          <Route path="/listCabs" element={<CabList />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

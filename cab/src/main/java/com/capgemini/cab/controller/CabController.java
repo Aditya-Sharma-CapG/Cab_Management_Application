@@ -19,7 +19,7 @@ import com.capgemini.cab.domain.Cab;
 import com.capgemini.cab.service.ICabService;
 
 @RestController
-@RequestMapping("/cab")
+@RequestMapping("/api/v1")
 @CrossOrigin
 public class CabController {
 	
@@ -30,7 +30,7 @@ public class CabController {
 	 * api to add new cab details
 	 * Admin privilege only
 	 */
-	@PostMapping("/add")
+	@PostMapping("/cabs")
 	public String insertCab(@RequestBody Cab cab) {
 		cabService.insertCab(cab);
 		return "New cab details added";
@@ -40,7 +40,7 @@ public class CabController {
 	 * api to list all the cabs, irrespective of type
 	 * admin and customer, both can view
 	 */
-	@GetMapping("/getAll")
+	@GetMapping("/cabs")
 	public List<Cab> getAllCabs() {
 		return cabService.getAllCabs();
 	}
@@ -50,7 +50,7 @@ public class CabController {
 	 *  @param(carType)
 	 *  admin and customer, both can view
 	*/
-	@GetMapping("/{carType}")
+	@GetMapping("/cabs/type/{carType}")
 	public String getCabCountByType(@PathVariable("carType") String carType) {
 		
 		int a = cabService.countCabsOfType(carType);
@@ -62,13 +62,20 @@ public class CabController {
 		}
 	} 
 	
+	@GetMapping("/cabs/{id}")
+	public ResponseEntity<Cab> getCabById(@PathVariable int id) {
+		Cab cab = null;
+		cab = cabService.getCabById(id);
+		return ResponseEntity.ok(cab); 
+	}
+	
 	/*
 	 * update a cab detail(s) by providing ID
 	 * @param(cabId)
 	 * Admin prilivige only
 	 */
-	@PutMapping("{id}")
-	public ResponseEntity<Cab> updateCab(@PathVariable("id") int id, @RequestBody Cab cab) {
+	@PutMapping("/cabs/{id}")
+	public ResponseEntity<Cab> updateCab(@RequestBody Cab cab, @PathVariable("id") int id) {
 		
 		return new ResponseEntity<Cab>(cabService.updateCab(cab, id), HttpStatus.OK);
 	}
@@ -78,7 +85,7 @@ public class CabController {
 	 *  @param(cabId)
 	 *  Admin privilige only
 	 */
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/cabs/{id}")
 	public String deleteCabById(@PathVariable("id") int cabId) {
 		cabService.deleteCabById(cabId);
 		
