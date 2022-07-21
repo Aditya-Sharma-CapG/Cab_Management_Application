@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 const Cab = ({ cab, deleteCab }) => {
   const navigate = useNavigate();
@@ -33,20 +35,26 @@ const Cab = ({ cab, deleteCab }) => {
       </td>
       <td className="text-right text-sm px-6 py-4 whitespace-nowrap space-x-2">
         <Button
+          style={{
+            backgroundColor: "#1E90FF",
+          }}
           variant="contained"
           size="medium"
           onClick={(e, cabId) => editCab(e, cab.cabId)}
           className="rounded text-white hover:text-gray-300 px-4 hover:cursor-pointer"
         >
-          Edit
+          <EditIcon />
         </Button>
         <Button
+          style={{
+            backgroundColor: "#FFB6C1",
+          }}
           variant="outlined"
           color="error"
           onClick={(e, cabId) => deleteCab(e, cab.cabId)}
           className="rounded text-white hover:text-white px-4 hover:cursor-pointer"
         >
-          Delete
+          <DeleteForeverIcon />
         </Button>
       </td>
     </tr>

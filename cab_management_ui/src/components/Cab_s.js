@@ -23,7 +23,13 @@ const Cab_s = ({ cab }) => {
         <div className="text-sm text-gray-700">₹ {cab.perKmRate}</div>
       </td>
       <td className="text-right px-5">
-        <Button onClick={(e, id) => showCab(e, cab.cabId)} variant="contained">
+        <Button
+          style={{
+            backgroundColor: "#23b314",
+          }}
+          onClick={(e, id) => showCab(e, cab.cabId)}
+          variant="contained"
+        >
           Book
         </Button>
       </td>
