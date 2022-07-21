@@ -21,8 +21,9 @@ import com.capgemini.cab.serviceimpl.CustomerServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 class CabManagementAppApplicationTests {
-	////////////////cab module/////////////////////////
-
+	
+	
+	////////////////////// Cab module Testing start ///////////////////////
 	@Mock
 	private ICabRepository cabRepo;
 	
@@ -33,39 +34,25 @@ class CabManagementAppApplicationTests {
 	void setMockOutput() {
 		this.cabService = new CabServiceImpl(this.cabRepo);
 	}
-	////////////////customer module/////////////////////////
-	@Mock
-	private ICustomerRepository customerRepo;
-	
-	@InjectMocks
-	private ICustomerService customerService = new CustomerServiceImpl(customerRepo);
-	
-	@BeforeEach
-	void setMockOutput1() {
-		this.customerService = new CustomerServiceImpl(this.customerRepo);
-	}
 
+	@Test
+	@Order(1)
+	void testInsertCab() {
+		Cab cab = new Cab();
+		cab.setCarName("BMW");
+		cab.setCarType("Sedan");
+		cab.setPerKmRate(9.0f);
+		
+		cabService.insertCab(cab);
+		verify(cabRepo).save(cab);
+	}
 	
-	//////////////////////  Cab module Testing start ///////////////////////
-	
-//	@Test
-//	@Order(1)
-//	void testInsertCab() {
-//		Cab cab = new Cab();
-//		cab.setCarName("BMW");
-//		cab.setCarType("Sedan");
-//		cab.setPerKmRate(9.0f);
-//		
-//		cabService.insertCab(cab);
-//		verify(cabRepo).save(cab);
-//	}
-//	
-//	@Test
-//	@Order(2)
-//	void testGetAllCabs() {
-//		cabService.getAllCabs();
-//		verify(cabRepo).findAll();
-//	}
+	@Test
+	@Order(2)
+	void testGetAllCabs() {
+		cabService.getAllCabs();
+		verify(cabRepo).findAll();
+	}
 	
 	@Test
 	@Order(3)
@@ -73,14 +60,14 @@ class CabManagementAppApplicationTests {
 		cabService.countCabsOfType("Sedan");
 		verify(cabRepo).getCountByCabType("Sedan");
 	}
-//	
-//	@Test
-//	@Order(4)
-//	void deleteCabById() {
-//		cabService.deleteCabById(1);
-//		verify(cabRepo).deleteById(1);
-//	}
-//	
+	
+	@Test
+	@Order(4)
+	void deleteCabById() {
+		cabService.deleteCabById(1);
+		verify(cabRepo).deleteById(1);
+	}
+	
 	@Test
 	@Order(5)
 	void testUpdateCab() {
@@ -96,11 +83,21 @@ class CabManagementAppApplicationTests {
 		
 		verify(cabRepo).save(cab);
 	}
-
-
-
-////////////////////Cab module Testing end ///////////////////////
-////////////////////Customer module Testing started ///////////////////////
+	//////////////////// Cab module Testing end ///////////////////////
+	
+	
+	//////////////////// Customer module Testing start ////////////////
+	
+//	@Mock
+//	private ICustomerRepository customerRepo;
+//	
+//	@InjectMocks
+//	private ICustomerService customerService = new CustomerServiceImpl(customerRepo);
+//	
+//	@BeforeEach
+//	void setMockOutput1() {
+//		this.customerService = new CustomerServiceImpl(this.customerRepo);
+//	}
 
 //@Test
 //@Order(1)

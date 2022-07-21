@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CabService from "../services/CabService";
+import Button from "@mui/material/Button";
 
 const AddCab = () => {
   const [cab, setCab] = useState({
@@ -43,7 +44,7 @@ const AddCab = () => {
     <div className="flex max-w-2xl shadow border-b mx-auto">
       <div className="px-8 py-8">
         <div className="font-thin text-2xl tracking-wider">
-          <h1>Add new cab</h1>
+          <h1 className="antialiased italic font-medium">Add new cab</h1>
         </div>
 
         <div className="items-center justify-center h-14 w-full my-4">
@@ -86,19 +87,21 @@ const AddCab = () => {
         </div>
 
         <div className="items-center justify-center h-14 w-full my-4 space-x-6 py-5">
-          <button
-            onClick={saveCab}
-            className="rounded text-white font-semibold bg-green-500 py-2 px-6 hover:bg-green-700"
-          >
+          <Button variant="contained" color="success" onClick={saveCab}>
             Save
-          </button>
+          </Button>
 
-          <button
-            onClick={reset}
-            className="rounded text-white font-semibold bg-red-500 py-2 px-6 hover:bg-red-700"
-          >
+          <Button variant="outlined" color="error" onClick={reset}>
             Clear
-          </button>
+          </Button>
+
+          <Button
+            variant="outlined"
+            color="error"
+            onClick={() => navigate("/cabList")}
+          >
+            Cancel
+          </Button>
         </div>
       </div>
     </div>

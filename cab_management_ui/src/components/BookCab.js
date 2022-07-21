@@ -12,11 +12,6 @@ const BookCab = () => {
     perKmRate: "",
   });
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setCab({ ...cab, [e.target.name]: value });
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,7 +30,7 @@ const BookCab = () => {
     <div className="flex max-w-2xl shadow border-b mx-auto">
       <div className="px-8 py-8">
         <div className="font-thin text-2xl tracking-wider">
-          <h1>Book a cab</h1>
+          <h1>Confirm cab details</h1>
         </div>
 
         <div className="items-center justify-center h-14 w-full my-4">
@@ -47,7 +42,6 @@ const BookCab = () => {
             name="carName"
             disabled={true}
             value={cab.carName}
-            onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
         </div>
@@ -61,7 +55,6 @@ const BookCab = () => {
             name="carType"
             disabled={true}
             value={cab.carType}
-            onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
         </div>
@@ -75,7 +68,6 @@ const BookCab = () => {
             name="perKmRate"
             disabled={true}
             value={cab.perKmRate}
-            onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
         </div>
@@ -89,7 +81,7 @@ const BookCab = () => {
           </button>
 
           <button
-            onClick={() => navigate("/cabList")}
+            onClick={() => navigate("/listCabs")}
             className="rounded text-white font-semibold bg-red-500 py-2 px-6 hover:bg-red-700"
           >
             Cancel

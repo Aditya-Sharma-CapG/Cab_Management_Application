@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CabService from "../services/CabService";
 import Cab from "./Cab";
+import AddIcon from "@mui/icons-material/Add";
 
 const ListCab = () => {
   const navigate = useNavigate();
@@ -42,12 +43,13 @@ const ListCab = () => {
           className="rounded bg-slate-600 hover:bg-slate-900 text-white px-6 py-2 font-semibold"
         >
           Add Cab
+          <AddIcon className="px-13 ml-2" />
         </button>
       </div>
 
       <div className="flex shadow border-b mt-3">
         <table className="min-w-full">
-          <thead className="bg-gray-200">
+          <thead className="bg-gray-300">
             <tr>
               <th className="text-left font-medium text-gray-600 uppercase tracking-wider py-3 px-6">
                 Car Name
@@ -58,7 +60,7 @@ const ListCab = () => {
               <th className="text-left font-medium text-gray-600 uppercase tracking-wider py-3 px-6">
                 Per km rate
               </th>
-              <th className="text-right font-medium text-gray-600 uppercase tracking-wider py-3 px-6">
+              <th className="text-right font-medium text-gray-600 uppercase tracking-wider py-3 px-16">
                 Actions
               </th>
             </tr>

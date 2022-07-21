@@ -49,7 +49,6 @@ public class CabServiceImpl implements ICabService {
 
 	@Override
 	public int countCabsOfType(String carType) {
-		
 		return cabRepository.getCountByCabType(carType);
 	}
 

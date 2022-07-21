@@ -4,8 +4,6 @@ import CabService from "../services/CabService";
 import Cab_s from "./Cab_s";
 
 const CabsList = () => {
-  const navigate = useNavigate();
-
   const [loadings, setLoadings] = useState(true);
   const [cabs, setCabs] = useState(null);
 

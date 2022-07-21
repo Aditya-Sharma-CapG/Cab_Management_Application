@@ -6,6 +6,11 @@ import Button from "@mui/material/Button";
 const Cab_s = ({ cab }) => {
   const navigate = useNavigate();
 
+  const showCab = (e, cabId) => {
+    e.preventDefault();
+    navigate(`/bookCab`);
+  };
+
   return (
     <tr className="hover:bg-gray-300" key={cab.cabId}>
       <td className="text-left px-6 py-4 whitespace-nowrap">
@@ -18,7 +23,7 @@ const Cab_s = ({ cab }) => {
         <div className="text-sm text-gray-700">₹ {cab.perKmRate}</div>
       </td>
       <td className="text-right px-5">
-        <Button onClick={() => navigate("/pageBooked")} variant="contained">
+        <Button onClick={(e, id) => showCab(e, cab.cabId)} variant="contained">
           Book
         </Button>
       </td>
