@@ -5,15 +5,19 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capgemini.cab.domain.Cab;
 import com.capgemini.cab.domain.CustomerLogin;
 import com.capgemini.cab.service.CustomerLoginService;
 
@@ -34,7 +38,7 @@ public class CustomeLoginrController {
 		return customerService.getAllCustomers();	}
 	
 	//Create a customer
-	@PostMapping("/customer/Login")
+	@PostMapping("/customer/login")
 	public ResponseEntity<CustomerLogin> createCustomer(@RequestBody CustomerLogin customer) {
 		LOGGER.info("Inside create customer method of customer controller");
 		CustomerLogin saveCustomer = customerService.saveCustomer(customer);
@@ -48,6 +52,25 @@ public class CustomeLoginrController {
 		LOGGER.info("Inside get customer name of customer controller");
 		return customerService.getCustomerByUsername(username);
 		
+	}
+	
+	@DeleteMapping("/delete/customer/{id}")
+	public String deleteCustomerById(@PathVariable("id") Long id){
+		customerService.deleteCustomerById(id);
+		return "customer deleted";
+	}
+	
+	@GetMapping("/customerlogin/{id}")
+	public ResponseEntity<CustomerLogin> getCustomerById(@PathVariable Long id) {
+		CustomerLogin customerlogin = null;
+		customerlogin = customerService.getCustomerById(id);
+		return ResponseEntity.ok(customerlogin); 
+	}
+	
+	@PutMapping("/updatecustomer/{id}")
+	public ResponseEntity<CustomerLogin> updateCab(@RequestBody CustomerLogin customerLogin, @PathVariable("id") Long id) {
+		
+		return new ResponseEntity<CustomerLogin>(customerService.updateCab(customerLogin, id), HttpStatus.OK);
 	}
 	
 
