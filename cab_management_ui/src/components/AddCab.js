@@ -65,6 +65,7 @@ const AddCab = () => {
               <TextField
                 type="text"
                 name="carName"
+                required
                 value={cab.carName}
                 onChange={(e) => handleChange(e)}
                 className="h-10 w-96 border mt-2 px-2 py-2"

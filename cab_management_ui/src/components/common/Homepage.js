@@ -31,7 +31,7 @@ const Homepage = () => {
                 padding: "18px 36px",
                 fontSize: "18px",
               }}
-              href="/register"
+              href="/registration"
               variant="contained"
             >
               Sign Up

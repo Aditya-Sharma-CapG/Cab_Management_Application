@@ -1,23 +1,27 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AddCab from "./components/AddCab";
+import Register from "./pages/registration";
+import AdminLogin from "./components/AdminLogin";
 import BookCab from "./components/BookCab";
 import CabBookSuccess from "./components/CabBookSuccess";
 import CabList from "./components/CabsList";
 import Homepage from "./components/common/Homepage";
 import ListCab from "./components/ListCab";
-import Navbar from "./components/Navbar";
+import Login from "./components/Login";
 import UpdateCab from "./components/UpdateCab";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <Navbar /> */}
         <Routes>
           <Route index element={<Homepage />}></Route>
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/home" element={<Homepage />}></Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Register />} />
+          <Route path="/Adminlogin" element={<AdminLogin />} />
           <Route path="/cabList" element={<ListCab />}></Route>
           <Route path="/addCab" element={<AddCab />}></Route>
           <Route path="/editCab/:id" element={<UpdateCab />}></Route>

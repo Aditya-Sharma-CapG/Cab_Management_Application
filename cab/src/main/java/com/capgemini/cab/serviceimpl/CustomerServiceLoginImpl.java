@@ -29,7 +29,4 @@ public class CustomerServiceLoginImpl implements CustomerLoginService {
 		return null;
 	}
 
-
-
-	
 }

@@ -18,36 +18,25 @@ public class CustomerLogin implements Serializable {
 	/**
 	 * 
 	 */
-	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -600440674366236226L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id", updatable = false)
 	private Long id;
 	
-	@Column(name = "customer_name")
 
 	private String name;
-	
-	@Column(name = "cutsomer_village")
 
 	private String village;
 	
-	@Column(name = "pincode")
-
 	private String pincode;
 	
-	@Column(name = "phone_number", unique = true)
-
 	private String phone;
 	
-	@Column(name = "username")
 
 	private String username;
 	
-	@Column(name = "password")
-
 	private String password;
 	
 
