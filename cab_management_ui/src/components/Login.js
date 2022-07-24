@@ -19,14 +19,19 @@ function Login() {
     let userInp = e.target.elements.username.value;
     let passInp = e.target.elements.password.value;
     const result = await axios.get("http://localhost:8080/msms/get/customer");
+    let bool = false;
     for (let i = 0; i < result.data.length; i++) {
       const ento = result.data[i];
       if (userInp === ento.username && passInp === ento.password) {
         console.log("user login successful");
-        GotoNext();
+        bool = !bool;
         break;
-      } else alert("Invalid username/password");
+      }
     }
+
+    if (bool) {
+      GotoNext();
+    } else alert("Invalid username/password");
   }
 
   return (

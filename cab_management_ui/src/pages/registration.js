@@ -17,7 +17,7 @@ function Register() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:8080/msms/customer/Login", {
+      await axios.post("http://localhost:8080/msms/customer/login", {
         id: id,
         name: name,
         village: village,

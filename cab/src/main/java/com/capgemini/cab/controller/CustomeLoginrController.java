@@ -23,7 +23,7 @@ import com.capgemini.cab.service.CustomerLoginService;
 
 @RestController
 @RequestMapping("/msms")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CustomeLoginrController {
 	
 	private static final Logger LOGGER = LogManager.getLogger(CustomeLoginrController.class);
@@ -67,7 +67,7 @@ public class CustomeLoginrController {
 		return ResponseEntity.ok(customerlogin); 
 	}
 	
-	@PutMapping("/updatecustomer/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<CustomerLogin> updateCab(@RequestBody CustomerLogin customerLogin, @PathVariable("id") Long id) {
 		
 		return new ResponseEntity<CustomerLogin>(customerService.updateCab(customerLogin, id), HttpStatus.OK);

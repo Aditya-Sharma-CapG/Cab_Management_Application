@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Input } from "@mui/material";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -17,17 +17,23 @@ function Admin() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let userInp = e.target.elements.username.value;
+    let userInp = e.target.elements.email.value;
     let passInp = e.target.elements.password.value;
     const result = await axios.get("http://localhost:8080/msms/get/Admin");
 
+    let bool = false;
     for (let i = 0; i < result.data.length; i++) {
       const ento = result.data[i];
       if (userInp === ento.username && passInp === ento.password) {
-        GotoNext();
+        console.log("Login successful");
+        bool = !bool;
         break;
-      } else alert("Invalid username/password");
+      }
     }
+
+    if (bool) {
+      GotoNext();
+    } else alert("Invalid username/password");
   }
 
   return (
@@ -46,9 +52,9 @@ function Admin() {
                   <Input
                     className="px-2"
                     required
-                    type="text"
-                    placeholder="Username"
-                    name="username"
+                    type="email"
+                    placeholder="Email"
+                    name="email"
                   />
                   <br />
                   <br></br>
@@ -64,6 +70,10 @@ function Admin() {
                   <Button variant="contained" type="submit">
                     Login
                   </Button>
+
+                  <p className="mt-2">
+                    New Admin? <Link to="/adminsignup">Sign up</Link>
+                  </p>
                 </fieldset>
               </div>
             </form>

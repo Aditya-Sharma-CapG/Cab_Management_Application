@@ -14,7 +14,7 @@ public class AdminLogin {
 	@Column(name = "Admin_id")
 	private Long id;
 	
-	@Column(name = "UserName")
+	@Column(name = "Email")
 	private String username;
 	
 	@Column(name = "Password")

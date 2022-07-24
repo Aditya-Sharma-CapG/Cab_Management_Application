@@ -1,5 +1,7 @@
 package com.capgemini.cab.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import com.capgemini.cab.service.IAdminService;
 
 @Service
 public class AdminServiceImpl implements IAdminService{
+	
 	@Autowired
 	private IAdminRepository adminRepo;
 	
@@ -17,6 +20,11 @@ public class AdminServiceImpl implements IAdminService{
 	public Admin insertAdmin(Admin admin) {
 		adminRepo.save(admin);
 		return admin;
+	}
+	
+	@Override
+	public List<Admin> getAllAdmins() {
+		return adminRepo.findAll();
 	}
 
 	@Override
