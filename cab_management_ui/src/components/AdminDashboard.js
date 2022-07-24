@@ -53,55 +53,58 @@ export default function AdminDashboard() {
         </div>
       </nav>
       <div className="container mx-auto grid place-items-center">
-        <div className="py-4">
+        <div className="overflow-x-auto relative">
           <p className="text-gray-700 text-center mt-5 text-2xl">
             List of Admins
           </p>
-          <table className="table-fixed border shadow mt-3">
-            <thead className="">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-600">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr className="font-sans">
-                <th
-                  className="text-slate-600 table-row-group font-semibold mr"
-                  scope="col"
-                >
-                  #
+                <th className="py-3 px-6" scope="col">
+                  Sr. No.
                 </th>
-                <th className="text-slate-600 font-semibold mr" scope="col">
+                <th className="py-3 px-6" scope="col">
                   Admin ID
                 </th>
-                <th className="text-slate-600 font-semibold mr" scope="col">
+                <th className="py-3 px-6" scope="col">
                   Email
                 </th>
-                <th className="text-slate-600 font-semibold mr" scope="col">
+                <th className="py-3 px-6" scope="col">
                   Password
                 </th>
-                <th className="text-slate-600 font-semibold mr" scope="col">
-                  Action
+                <th className="py-3 px-6" scope="col">
+                  Actions
                 </th>
               </tr>
             </thead>
             <tbody align="center">
               {users.map((user, index) => (
-                <tr>
-                  <th scope="row" key={index}>
+                <tr class="bg-white border-b dark:bg-gray-200 dark:border-gray-400">
+                  <th
+                    scope="row"
+                    key={index}
+                    class="py-4 px-6 font-medium text-900 whitespace-nowrap dark:text-black"
+                  >
                     {index + 1}
                   </th>
                   <td>{user.adminId}</td>
                   <td>{user.email}</td>
                   <td>{user.password}</td>
-                  <td>
-                    <Link
-                      className="btn btn-outline-primary mx-2"
-                      to="/editadmins"
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      className="btn btn-danger mx-2"
-                      onClick={() => deleteUser(user.adminId)}
-                    >
-                      Delete
-                    </button>
+                  <td class="py-4 px-6">
+                    <div className="space-x-2">
+                      <Link
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                        to="/editadmins"
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+                        onClick={() => deleteUser(user.adminId)}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

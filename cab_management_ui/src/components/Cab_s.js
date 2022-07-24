@@ -8,7 +8,7 @@ const Cab_s = ({ cab }) => {
 
   const showCab = (e, cabId) => {
     e.preventDefault();
-    navigate(`/bookCab`);
+    navigate(`/addBooking`);
   };
 
   return (

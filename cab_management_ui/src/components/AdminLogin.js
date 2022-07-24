@@ -12,7 +12,7 @@ function Admin() {
   const navigate = useNavigate();
 
   const GotoNext = () => {
-    navigate("/cabList");
+    navigate("/adminlandingpage");
   };
 
   async function handleSubmit(e) {

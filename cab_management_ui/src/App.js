@@ -15,6 +15,10 @@ import CustomerList from "./components/CustomerList";
 import SignupForm from "./components/SignupForm";
 import AdminDashboard from "./components/AdminDashboard";
 import EditUsers from "./components/EditUsers";
+import AddBooking from "./components/AddBooking";
+import TripBookingList from "./components/TripBooking";
+import UpdateTripBooking from "./components/UpdateTripBooking";
+import AdminLandingPage from "./components/AdminLandingPage";
 
 function App() {
   return (
@@ -25,6 +29,10 @@ function App() {
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/home" element={<Homepage />}></Route>
           <Route path="/login" element={<Login />} />
+          <Route
+            path="/adminlandingpage"
+            element={<AdminLandingPage />}
+          ></Route>
           <Route path="/adminsignup" element={<SignupForm />}></Route>
           <Route path="/admindashboard" element={<AdminDashboard />}></Route>
           <Route path="/editadmins" element={<EditUsers />}></Route>
@@ -38,6 +46,12 @@ function App() {
           <Route path="/listCabs" element={<CabList />}></Route>
           <Route path="/customerList" element={<CustomerList />}></Route>
           <Route path="/editCustomer/:id" element={<UpdateCustomer />}></Route>
+          <Route path="/addBooking" element={<AddBooking />}></Route>
+          <Route path="/tripBookingList" element={<TripBookingList />}></Route>
+          <Route
+            path="/editTripBooking/:id"
+            element={<UpdateTripBooking />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
